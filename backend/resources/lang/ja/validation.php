@@ -96,7 +96,7 @@ return [
     'password'             => '正しいパスワードを指定してください。',
     'present'              => ':attributeが存在していません。',
     'regex'                => ':attributeに正しい形式を指定してください。',
-    'required'             => ':attributeは必ず指定してください。',
+    'required'             => ':attributeは必ず入力してください。',
     'required_if'          => ':otherが:valueの場合、:attributeも指定してください。',
     'required_unless'      => ':otherが:valuesでない場合、:attributeを指定してください。',
     'required_with'        => ':valuesを指定する場合は、:attributeも指定してください。',
@@ -148,6 +148,9 @@ return [
 
     'attributes' => [
         'password' => 'パスワード',
+        'title' => 'タイトル',
+        'target_site' => '鍛えた部位',
+        'content' => '内容',
     ],
 
 ];

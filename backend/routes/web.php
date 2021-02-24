@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BlogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +16,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('blog/index', [BlogController::class, 'index'])->name('blog.index');
+
+Route::group(['prefix' => 'blog', 'middleware' => 'auth'], function(){
+    Route::get('create', [BlogController::class, 'create'])->name('blog.create');
+    Route::post('store', [BlogController::class, 'store'])->name('blog.store');
+    Route::get('show/{id}', [BlogController::class, 'show'])->name('blog.show');
+    Route::get('edit/{id}', [BlogController::class, 'edit'])->name('blog.edit');
+    Route::post('update/{id}', [BlogController::class, 'update'])->name('blog.update');
+    Route::post('destroy/{id}', [BlogController::class, 'destroy'])->name('blog.destroy');
 });
 
 Auth::routes();

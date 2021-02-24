@@ -18,7 +18,7 @@
                     {{ $blog->target_site }}
                     {{ $blog->content }}
                     {{ $blog->created_at }}
-                    {{ $blog->user->name }}
+                    {{-- {{ $blog->user->name }} --}}
 
                     <form method="GET" action="{{ route('blog.edit', ['id' => $blog->id ]) }}">
                     @csrf

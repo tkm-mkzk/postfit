@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Blog;
+// use App\Models\User;
 use App\Http\Requests\StoreBlog;
+use Illuminate\Support\Facades\DB;
+
 
 class BlogController extends Controller
 {
@@ -17,9 +20,15 @@ class BlogController extends Controller
     {
         // $blogs = Blog::all();
 
-        $blogs = Blog::All()
-        ->sortByDesc('created_at');
-        return view('blog.index', ['blogs' => $blogs]);
+        // $blogs = Blog::All()
+        // ->sortByDesc('created_at');
+
+        $blogs = DB::table('blogs')
+        ->select('id', 'title', 'target_site', 'content', 'created_at', 'user_id')
+        ->orderBy('created_at', 'desc')
+        ->paginate(10);
+
+        return view('blog.index', compact('blogs'));
     }
 
     /**
@@ -62,7 +71,8 @@ class BlogController extends Controller
     {
         $blog = Blog::find($id);
 
-        return view('blog.show', compact('blog'));
+        return view('blog.show',
+        compact('blog'));
     }
 
     /**

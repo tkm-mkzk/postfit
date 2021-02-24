@@ -25,7 +25,7 @@ class StoreBlog extends FormRequest
     {
         return [
             'title' => 'required|string|max:50',
-            'target_site' => 'required|accepted',
+            'target_site' => 'required',
             'content' => 'required|string|max:200',
         ];
     }

@@ -26,7 +26,7 @@
                         <th scope="col">鍛えた部位</th>
                         <th scope="col">内容</th>
                         <th scope="col">投稿日時</th>
-                        <th scope="col">投稿者</th>
+                        {{-- <th scope="col">投稿者</th> --}}
                         <th scope="col">詳細</th>
                         </tr>
                     </thead>
@@ -37,12 +37,14 @@
                     <td>{{ $blog->target_site }}</td>
                     <td>{{ $blog->content }}</td>
                     <td>{{ $blog->created_at }}</td>
-                    <td>{{ $blog->user->name }}</td>
+                    {{-- <td>{{ $blog->user->name }}</td> --}}
                     <td><a href="{{ route('blog.show', ['id' => $blog->id ]) }}">詳細</a></td>
                     </tr>
                     @endforeach
                     </tbody>
                     </table>
+
+                    {{ $blogs->links() }}
                 </div>
             </div>
         </div>

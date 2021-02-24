@@ -16,17 +16,46 @@ class BlogController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         // $blogs = Blog::all();
 
         // $blogs = Blog::All()
         // ->sortByDesc('created_at');
 
-        $blogs = DB::table('blogs')
-        ->select('id', 'title', 'target_site', 'content', 'created_at', 'user_id')
-        ->orderBy('created_at', 'desc')
-        ->paginate(10);
+        $search = $request->input('search');
+
+        // クエリビルダ
+        // $blogs = DB::table('blogs')
+        // ->select('id', 'title', 'target_site', 'content', 'created_at', 'user_id')
+        // ->orderBy('created_at', 'desc')
+        // ->paginate(10);
+
+        // 検索フォーム
+        $query = DB::table('blogs');
+        // ->join('blogs', 'blog.id', '=', 'blogs.user_id')
+
+        // もしキーワードがあったら
+        if($search !== null){
+            //全角スペースを半角に
+            $search_split = mb_convert_kana($search, 's');
+
+            //空白で区切る
+            $search_split2 = preg_split('/[\s]+/', $search_split, -1, PREG_SPLIT_NO_EMPTY);
+
+            //単語をループで回す
+            foreach($search_split2 as $value)
+            {
+            $query->where('title', 'like', '%' .$value.'%')
+            ->orWhere('target_site', 'like', '%' .$value.'%')
+            ->orWhere('content', 'like', '%' .$value.'%')
+            ->orWhere('created_at', 'like', '%' .$value.'%');
+            }
+        }
+
+        $query->select('id', 'title', 'target_site', 'content', 'created_at', 'user_id');
+        $query->orderBy('created_at', 'desc');
+        $blogs = $query->paginate(20);
 
         return view('blog.index', compact('blogs'));
     }

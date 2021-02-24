@@ -13,5 +13,4 @@ class Blog extends Model
         return $this->belongsTo('App\Models\User');
     }
 
-    protected $fillable = ['title', 'target_site', 'content', 'user_id'];
 }

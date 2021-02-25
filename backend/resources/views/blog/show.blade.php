@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header">{{ __('詳細') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,19 +14,35 @@
                         </div>
                     @endif
 
-                    {{ $blog->title }}
-                    {{ $blog->target_site }}
-                    {{ $blog->content }}
-                    {{ $blog->created_at }}
-                    {{-- {{ $blog->user->name }} --}}
+                    <table class="table">
+                        <thead>
+                            <tr>
+                            <th scope="col">タイトル</th>
+                            <th scope="col">鍛えた部位</th>
+                            <th scope="col">内容</th>
+                            <th scope="col">投稿日時</th>
+                            <th scope="col">投稿者</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                        <th>{{ $blog->title }}</th>
+                        <td>{{ $blog->target_site }}</td>
+                        <td>{{ $blog->content }}</td>
+                        <td>{{ $blog->created_at }}</td>
+                        <td>{{ Auth::user()->name }}</td>
+                        </tr>
+                        </tbody>
+                        </table>
 
-                    <form method="GET" action="{{ route('blog.edit', ['id' => $blog->id ]) }}">
+
+                    <form class="text-center" method="GET" action="{{ route('blog.edit', ['id' => $blog->id ]) }}">
                     @csrf
 
                     <input class="btn btn-info" type="submit" value="編集">
                     </form>
 
-                    <form method="POST" action="{{ route('blog.destroy', ['id' => $blog->id ]) }}" id="delete_{{ $blog->id }}">
+                    <form class="text-center" method="POST" action="{{ route('blog.destroy', ['id' => $blog->id ]) }}" id="delete_{{ $blog->id }}">
                     @csrf
                     <a href="#" class="btn btn-danger" data-id="{{ $blog->id }}" onclick="deletePost(this);">削除</a>
                     </form>

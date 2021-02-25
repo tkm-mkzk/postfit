@@ -15,12 +15,11 @@ use App\Http\Controllers\BlogController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
-Route::get('blog/index', [BlogController::class, 'index'])->name('blog.index');
-
 Route::group(['prefix' => 'blog', 'middleware' => 'auth'], function(){
+    Route::get('index', [BlogController::class, 'index'])->name('blog.index');
     Route::get('create', [BlogController::class, 'create'])->name('blog.create');
     Route::post('store', [BlogController::class, 'store'])->name('blog.store');
     Route::get('show/{id}', [BlogController::class, 'show'])->name('blog.show');

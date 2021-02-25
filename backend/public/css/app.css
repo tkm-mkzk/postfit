@@ -10004,3 +10004,38 @@ h3 {
     border-color: #dee2e6;
   }
 }
+
+#bg-video{
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  background-size: cover;
+}
+
+.header-title{
+  display: flex;
+  width: 50%;
+  justify-content: center;
+  text-align:center;
+  margin: auto;
+  font-size: 50px;
+  color:black;
+}
+
+.explanation {
+  z-index: 2;
+  display: flex;
+  width: 60%;
+  justify-content: center;
+  align-items: center;
+  text-align:center;
+  margin: auto;
+  margin-top: 40px;
+  font-size: 50px;
+  color:black;
+}

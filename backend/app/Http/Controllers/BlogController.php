@@ -58,6 +58,7 @@ class BlogController extends Controller
         $blogs = $query->paginate(20);
 
         return view('blog.index', compact('blogs'));
+
     }
 
     /**

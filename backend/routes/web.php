@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,3 +32,7 @@ Route::group(['prefix' => 'blog', 'middleware' => 'auth'], function(){
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::group(['prefix' => 'user', 'middleware' => 'auth'], function() {
+    Route::get('show/{id}', [UserController::class, 'show'])->name('user.show');
+});

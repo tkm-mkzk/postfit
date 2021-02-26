@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+@if( ( $blog->user_id ) === ( Auth::user()->id ) )
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -21,7 +22,6 @@
                             <th scope="col">鍛えた部位</th>
                             <th scope="col">内容</th>
                             <th scope="col">投稿日時</th>
-                            <th scope="col">投稿者</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -30,12 +30,11 @@
                         <td>{{ $blog->target_site }}</td>
                         <td>{{ $blog->content }}</td>
                         <td>{{ $blog->created_at }}</td>
-                        <td>{{ Auth::user()->name }}</td>
                         </tr>
                         </tbody>
-                        </table>
+                    </table>
 
-
+                    @if(Auth::user()->id === $blog->user_id)
                     <form class="text-center" method="GET" action="{{ route('blog.edit', ['id' => $blog->id ]) }}">
                     @csrf
 
@@ -46,6 +45,7 @@
                     @csrf
                     <a href="#" class="btn btn-danger" data-id="{{ $blog->id }}" onclick="deletePost(this);">削除</a>
                     </form>
+                    @endif
                 </div>
             </div>
         </div>
@@ -60,5 +60,5 @@
         }
     }
 </script>
-
+@endif
 @endsection

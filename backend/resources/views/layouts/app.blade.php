@@ -57,6 +57,11 @@
                                     {{ Auth::user()->name }}
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('user.show', auth()->user()->id) }}"
+                                        onclick="event.preventDefault();
+                                            document.getElementById('show').submit();">
+                                        {{ __('マイページ') }}
+                                    </a>
                                     <a class="dropdown-item" href="{{ route('blog.create') }}"
                                         onclick="event.preventDefault();
                                             document.getElementById('create').submit();">
@@ -73,6 +78,9 @@
                                         {{ __('ログアウト') }}
                                     </a>
 
+                                    <form id="show" action="{{ route('user.show', auth()->user()->id) }}" method="GET" class="d-none">
+                                        @csrf
+                                    </form>
                                     <form id="create" action="{{ route('blog.create') }}" method="GET" class="d-none">
                                         @csrf
                                     </form>

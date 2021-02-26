@@ -44,4 +44,17 @@ class User extends Authenticatable
     public function blogs(){
         return $this->hasMany('App\Models\Blog');
     }
+
+    public function selectUserFindById($id)
+    {
+        $query = $this->select([
+            'id',
+            'name',
+            'email'
+        ])->where([
+            'id' => $id
+        ]);
+        // first()は1件のみ取得する関数
+        return $query->first();
+    }
 }

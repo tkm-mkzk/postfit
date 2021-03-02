@@ -14,7 +14,6 @@
                         </div>
                     @endif
 
-                    editです!
                     <form method="POST" action="{{ route('blog.update', ['id' => $blog->id ]) }}">
                     @csrf
 

@@ -45,6 +45,10 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Blog');
     }
 
+    public function weights(){
+        return $this->hasMany('App\Models\Weight');
+    }
+
     public function selectUserFindById($id)
     {
         $query = $this->select([

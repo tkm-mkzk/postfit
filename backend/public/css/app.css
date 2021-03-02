@@ -10011,8 +10011,9 @@ h3 {
   justify-content: center;
   text-align:center;
   margin: auto;
-  font-size: 50px;
-  color:black;
+  margin-top: 145px;
+  font-size: 89px;
+  color:white;
 }
 
 .explanation {
@@ -10024,8 +10025,9 @@ h3 {
   text-align:center;
   margin: auto;
   margin-top: 40px;
-  font-size: 50px;
-  color:black;
+  font-size: 40px;
+  font-weight: bold;
+  color:white;
 }
 
 .blog {
@@ -10035,4 +10037,51 @@ h3 {
 
 .adjustment {
   margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#bg-video{
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  background-size: cover;
+}
+
+/* ヘッダー */
+.header {
+  position: fixed;
+  top: 0;
+  opacity: 0.7;
+  width: 100%;
+  z-index:1000;
+}
+
+.nav-link:hover {
+  font-weight: bold;
+}
+
+.dropdown-item:hover {
+  font-weight: bold;
+  opacity: 0.9;
+}
+
+/* フッター */
+.footer {
+  padding: 5px;
+  font-size: 15px;
+  opacity: 0.6;
+  z-index:1000;
+}
+
+.header-margin {
+  margin-top: 50px;
+}
+
+.footer-bottom {
+  margin-bottom: 50px;
 }

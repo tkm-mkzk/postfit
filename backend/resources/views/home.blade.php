@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<video id="bg-video" src="/videos/training.mp4" autoplay loop muted></video>
     <div class="header-title">
         <p>
         さあ！一緒に<br> PostFit<br>

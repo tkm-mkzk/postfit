@@ -4,7 +4,7 @@
 @if( ( $blog->user_id ) === ( Auth::user()->id ) )
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-8 header-margin footer-bottom">
             <div class="card">
                 <div class="card-header">{{ __('詳細') }}</div>
 

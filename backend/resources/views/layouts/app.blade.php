@@ -26,7 +26,7 @@
     <main class="py-4">
         @yield('content')
     </main>
-    <footer class= "fixed-bottom text-center footer text-black">
+    <footer class= "fixed-bottom text-center footer text-black bg-white">
         @include('layouts.footer')
     </footer>
 </body>

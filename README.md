@@ -1,10 +1,10 @@
 # PostFit
 
-<img width="712" alt="スクリーンショット 2021-02-26 17 02 41" src="https://user-images.githubusercontent.com/71067058/109272692-965a0500-7854-11eb-8c93-9e3960719f57.png">
+<img width="712" alt="スクリーンショット 2021-02-26 17 02 41" src="https://user-images.githubusercontent.com/71067058/109457947-34411000-7a9f-11eb-9f1e-e6bc434e2830.png">
 
 ## アプリケーション概要
 
-行ったトレーニングを投稿し、記録していくことができるアプリです。
+行ったトレーニングを投稿したり、体重を記録していくことができるアプリです。
 
 ## URL
 

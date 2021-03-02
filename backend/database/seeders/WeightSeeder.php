@@ -2,11 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Blog;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
+use App\Models\Weight;
 
-class BlogSeeder extends Seeder
+class WeightSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,7 +14,7 @@ class BlogSeeder extends Seeder
      */
     public function run()
     {
-        // Blog::factory()
+        // Weight::factory()
         // ->times(200)
         // ->create();
     }

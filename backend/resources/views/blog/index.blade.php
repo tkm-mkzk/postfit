@@ -37,20 +37,17 @@
                     </thead>
                     <tbody>
                     @foreach($blogs as $blog)
-                    @if( ( $blog->user_id ) === ( Auth::user()->id ) )
                     <tr>
                     <th>{{ $blog->title }}</th>
                     <td>{{ $blog->target_site }}</td>
                     <td>{{ $blog->content }}</td>
                     <td>{{ $blog->created_at }}</td>
-                    {{-- <td>{{ $blog->user->name }}</td> --}}
+                    {{-- <td>{{ $blog->user_id->name }}</td> --}}
                     <td><a href="{{ route('blog.show', ['id' => $blog->id ]) }}">詳細</a></td>
                     </tr>
-                    @endif
                     @endforeach
                     </tbody>
                     </table>
-
                     {{ $blogs->links() }}
                 </div>
             </div>

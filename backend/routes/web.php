@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WeightController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,16 @@ Route::group(['prefix' => 'blog', 'middleware' => 'auth'], function(){
     Route::get('edit/{id}', [BlogController::class, 'edit'])->name('blog.edit');
     Route::post('update/{id}', [BlogController::class, 'update'])->name('blog.update');
     Route::post('destroy/{id}', [BlogController::class, 'destroy'])->name('blog.destroy');
+});
+
+Route::group(['prefix' => 'weight', 'middleware' => 'auth'], function(){
+    Route::get('index', [WeightController::class, 'index'])->name('weight.index');
+    Route::get('create', [WeightController::class, 'create'])->name('weight.create');
+    Route::post('store', [WeightController::class, 'store'])->name('weight.store');
+    Route::get('show/{id}', [WeightController::class, 'show'])->name('weight.show');
+    Route::get('edit/{id}', [WeightController::class, 'edit'])->name('weight.edit');
+    Route::post('update/{id}', [WeightController::class, 'update'])->name('weight.update');
+    Route::post('destroy/{id}', [WeightController::class, 'destroy'])->name('weight.destroy');
 });
 
 Auth::routes();

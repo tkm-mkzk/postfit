@@ -23,9 +23,9 @@ class WeightFactory extends Factory
     public function definition()
     {
         return [
-            // 'date' => $this->faker->dateTimeBetween($startDate = '-6 month', $endDate = 'now'),
-            // 'weight' => $this->faker->numberBetween($min = 60, $max = 80),
-            // 'user_id' => User::factory(),
+            'date' => $this->faker->dateTimeBetween($startDate = '-6 month', $endDate = 'now'),
+            'weight' => $this->faker->numberBetween($min = 60, $max = 80),
+            'user_id' => 1,
         ];
     }
 }

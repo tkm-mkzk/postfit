@@ -22,11 +22,11 @@ class BlogFactory extends Factory
      */
     public function definition()
     {
-        // return [
-        //     'title' => $this->faker->realText(50),
-        //     'target_site' => $this->faker->randomElement(['胸', '腕', '肩', '腹', '背中', '脚', 'その他']),
-        //     'content' => $this->faker->realText(200),
-        //     'user_id' => User::factory(),
-        // ];
+        return [
+            'title' => $this->faker->realText(50),
+            'target_site' => $this->faker->randomElement(['胸', '腕', '肩', '腹', '背中', '脚', 'その他']),
+            'content' => $this->faker->realText(200),
+            'user_id' => 1,
+        ];
     }
 }

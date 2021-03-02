@@ -14,8 +14,8 @@ class WeightSeeder extends Seeder
      */
     public function run()
     {
-        // Weight::factory()
-        // ->times(200)
-        // ->create();
+        Weight::factory()
+        ->times(100)
+        ->create();
     }
 }

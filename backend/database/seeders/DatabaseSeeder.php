@@ -20,10 +20,5 @@ class DatabaseSeeder extends Seeder
         $this->call(BlogSeeder::class);
         $this->call(WeightSeeder::class);
 
-        DB::table('users')->insert([
-            'name' => Str::random(10),
-            'email' => 'test@gmail.com',
-            'password' => Hash::make('password'),
-        ]);
     }
 }

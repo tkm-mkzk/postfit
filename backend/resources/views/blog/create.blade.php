@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('新規投稿') }}</div>
+                <div class="card-header">{{ __('新規記録') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -44,7 +44,7 @@
                     内容<br>
                     <textarea name="content"></textarea>
                     <br>
-                    <input class="btn btn-info" type="submit" value="投稿する">
+                    <input class="btn btn-info" type="submit" value="記録">
                     </form>
                 </div>
             </div>

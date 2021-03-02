@@ -31,18 +31,18 @@
                 @else
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            投稿
+                            トレーニング
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('blog.create') }}"
                                 onclick="event.preventDefault();
                                     document.getElementById('blog_create').submit();">
-                                {{ __('新規投稿') }}
+                                {{ __('新規記録') }}
                             </a>
                             <a class="dropdown-item" href="{{ route('blog.index') }}"
                                 onclick="event.preventDefault();
                                     document.getElementById('blog_index').submit();">
-                                {{ __('投稿一覧') }}
+                                {{ __('トレーニング一覧') }}
                             </a>
                             <form id="blog_create" action="{{ route('blog.create') }}" method="GET" class="d-none">
                                 @csrf

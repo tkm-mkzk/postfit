@@ -10027,3 +10027,12 @@ h3 {
   font-size: 50px;
   color:black;
 }
+
+.blog {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.adjustment {
+  margin-top: 20px;
+}

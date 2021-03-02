@@ -24,28 +24,23 @@
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">検索</button>
                     </form>
 
-                    <table class="table">
-                    <thead>
-                        <tr>
-                        <th scope="col">タイトル</th>
-                        <th scope="col">鍛えた部位</th>
-                        <th scope="col">内容</th>
-                        <th scope="col">投稿日時</th>
-                        <th scope="col">詳細</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    @foreach($blogs as $blog)
-                    <tr>
-                    <th>{{ $blog->title }}</th>
-                    <td>{{ $blog->target_site }}</td>
-                    <td>{{ $blog->content }}</td>
-                    <td>{{ $blog->created_at }}</td>
-                    <td><a href="{{ route('blog.show', ['id' => $blog->id ]) }}">詳細</a></td>
-                    </tr>
-                    @endforeach
-                    </tbody>
-                    </table>
+                    <div class="container">
+                        <div class="blog">
+                            @foreach($blogs as $blog)
+                            <div class='col-xl-4 col-md-6 adjustment'>
+                                <div class='card'>
+                                    <div class='card-body'>
+                                        <h5 class="card-title">{{ $blog->title }}</h5>
+                                        <h6 class="card-title">鍛えた部位 [ {{ $blog->target_site }} ]</h6>
+                                        <p class="card-text">{{ $blog->content }}</p>
+                                        <p class="card-text">{{ $blog->created_at }}</p>
+                                        <a href="{{ route('blog.show', ['id' => $blog->id ]) }}">詳細</a>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
+                    </div>
                     {{ $blogs->links() }}
                 </div>
             </div>

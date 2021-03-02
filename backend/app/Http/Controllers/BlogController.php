@@ -33,7 +33,7 @@ class BlogController extends Controller
                 });
             })
             ->latest()
-            ->paginate(20);
+            ->paginate(12);
 
         return view('blog.index', compact('blogs'));
 

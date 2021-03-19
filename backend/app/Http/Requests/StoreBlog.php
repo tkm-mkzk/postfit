@@ -25,8 +25,17 @@ class StoreBlog extends FormRequest
     {
         return [
             'title' => 'required|string|max:50',
-            'target_site' => 'required',
-            'content' => 'required|string|max:200',
+            // 'target_site' => 'required',
+            'content' => 'required|string|max:500',
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'title' => 'タイトル',
+            // 'target_site' => '鍛えた部位',
+            'content' => '本文',
         ];
     }
 }

@@ -21,12 +21,12 @@ class BlogController extends Controller
         $words = explode(' ', $word);
 
         $blogs = Blog::query()
-            ->where('user_id', $request->user()->id)
+            // ->where('user_id', $request->user()->id)
             ->when(count($words), function ($query) use ($words) {
                 $query->where(function($query) use ($words) {
                     foreach ($words as $word) {
                         $query->where('title', 'like', '%' . $word . '%')
-                            ->orWhere('target_site', 'like', '%' . $word . '%')
+                            // ->orWhere('target_site', 'like', '%' . $word . '%')
                             ->orWhere('content', 'like', '%' . $word . '%')
                             ->orWhere('created_at', 'like', '%' . $word . '%');
                     }
@@ -59,9 +59,7 @@ class BlogController extends Controller
     {
         $blog = new Blog;
 
-        $blog->title = $request->input('title');
-        $blog->target_site = $request->input('target_site');
-        $blog->content = $request->input('content');
+        $blog->fill($request->all());
         $blog->user_id = $request->user()->id;
 
         $blog->save();
@@ -107,9 +105,8 @@ class BlogController extends Controller
     {
         $blog = Blog::find($id);
 
-
         $blog->title = $request->input('title');
-        $blog->target_site = $request->input('target_site');
+        // $blog->target_site = $request->input('target_site');
         $blog->content = $request->input('content');
         $blog->user_id = $request->user()->id;
 
@@ -130,5 +127,26 @@ class BlogController extends Controller
         $blog->delete();
 
         return redirect('blog/index');
+    }
+
+    public function like(Request $request, Blog $blog)
+    {
+        $blog->likes()->detach($request->user()->id);
+        $blog->likes()->attach($request->user()->id);
+
+        return [
+            'id' => $blog->id,
+            'countLikes' => $blog->count_likes,
+        ];
+    }
+
+    public function unlike(Request $request, Blog $blog)
+    {
+        $blog->likes()->detach($request->user()->id);
+
+        return [
+            'id' => $blog->id,
+            'countLikes' => $blog->count_likes,
+        ];
     }
 }

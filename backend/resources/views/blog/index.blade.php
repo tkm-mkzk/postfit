@@ -25,21 +25,9 @@
                     </form>
 
                     <div class="container">
-                        <div class="blog">
-                            @foreach($blogs as $blog)
-                            <div class='col-xl-4 col-md-6 adjustment'>
-                                <div class='card'>
-                                    <div class='card-body'>
-                                        <h5 class="card-title">{{ $blog->title }}</h5>
-                                        <h6 class="card-title">鍛えた部位 [ {{ $blog->target_site }} ]</h6>
-                                        <p class="card-text">{{ $blog->content }}</p>
-                                        <p class="card-text">{{ $blog->created_at }}</p>
-                                        <a href="{{ route('blog.show', ['id' => $blog->id ]) }}">詳細</a>
-                                    </div>
-                                </div>
-                            </div>
-                            @endforeach
-                        </div>
+                        @foreach($blogs as $blog)
+                            @include('blog.card')
+                        @endforeach
                     </div>
                     {{ $blogs->links() }}
                 </div>

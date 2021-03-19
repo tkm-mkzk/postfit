@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-@if( ( $blog->user_id ) === ( Auth::user()->id ) )
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8 header-margin footer-bottom">
@@ -19,7 +19,7 @@
                         <thead>
                             <tr>
                             <th scope="col">タイトル</th>
-                            <th scope="col">鍛えた部位</th>
+                            {{-- <th scope="col">鍛えた部位</th> --}}
                             <th scope="col">内容</th>
                             <th scope="col">投稿日時</th>
                             </tr>
@@ -27,7 +27,7 @@
                         <tbody>
                         <tr>
                         <th>{{ $blog->title }}</th>
-                        <td>{{ $blog->target_site }}</td>
+                        {{-- <td>{{ $blog->target_site }}</td> --}}
                         <td>{{ $blog->content }}</td>
                         <td>{{ $blog->created_at }}</td>
                         </tr>
@@ -60,5 +60,5 @@
         }
     }
 </script>
-@endif
+
 @endsection

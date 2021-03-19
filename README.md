@@ -44,6 +44,7 @@
 - Bootstrap4
 - PHP 8.0.1
 - Laravel 8.28.1
+- vue 2.6.11"
 - MySQL
 - docker
 - AWS(EC2)
@@ -66,6 +67,7 @@
 | updated_at         |         |                            |
 
 #### リレーション
+
 - hasMany :blogs
 
 ### blogs テーブル
@@ -74,7 +76,6 @@
 | -------------------- | ------------------ | ----------------- |
 | id                   |                    |                   |
 | title                | string             | 50                |
-| target_site          | string             |                   |
 | content              | text               |                   |
 | user_id              | unsignedBigInteger |                   |
 | created_at           |                    |                   |
@@ -83,3 +84,17 @@
 #### リレーション
 
 - belongsTo :user
+
+### likes テーブル
+
+| Column               | Type               | Options           |
+| -------------------- | ------------------ | ----------------- |
+| id                   |                    |                   |
+| user_id              | unsignedBigInteger |                   |
+| blog_id              | unsignedBigInteger |                   |
+| created_at           |                    |                   |
+| updated_at           |                    |                   |
+
+#### リレーション
+
+- users,blogsの中間テーブル

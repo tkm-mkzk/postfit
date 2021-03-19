@@ -149,7 +149,7 @@ return [
     'attributes' => [
         'password' => 'パスワード',
         'title' => 'タイトル',
-        'target_site' => '鍛えた部位',
+        // 'target_site' => '鍛えた部位',
         'content' => '内容',
     ],
 

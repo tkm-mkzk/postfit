@@ -28,6 +28,7 @@ Route::group(['prefix' => 'blog', 'middleware' => 'auth'], function(){
     Route::get('edit/{id}', [BlogController::class, 'edit'])->name('blog.edit');
     Route::post('update/{id}', [BlogController::class, 'update'])->name('blog.update');
     Route::post('destroy/{id}', [BlogController::class, 'destroy'])->name('blog.destroy');
+    Route::get('destroy/{id}', [BlogController::class, 'index']);
 });
 
 Route::group(['prefix' => 'weight', 'middleware' => 'auth'], function(){
@@ -46,4 +47,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::group(['prefix' => 'user', 'middleware' => 'auth'], function() {
     Route::get('show/{id}', [UserController::class, 'show'])->name('user.show');
+});
+
+Route::group(['prefix' => 'blog', 'middleware' => 'auth'], function() {
+    Route::put('{blog}/like', [BlogController::class, 'like'])->name('blog.like');
+    Route::delete('{blog}/like', [BlogController::class, 'unlike'])->name('blog.unlike');
 });

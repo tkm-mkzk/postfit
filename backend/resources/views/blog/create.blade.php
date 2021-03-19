@@ -6,14 +6,12 @@
         <div class="col-md-8 header-margin footer-bottom">
             <div class="card">
                 <div class="card-header">{{ __('新規記録') }}</div>
-
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
                     @endif
-
                     @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>
@@ -23,29 +21,10 @@
                         </ul>
                     </div>
                     @endif
-
                     <form method="POST" action="{{ route('blog.store') }}">
-                    @csrf
-                    タイトル<br>
-                    <input type="text" name="title">
-                    <br>
-                    鍛えた部位<br>
-                    <select name="target_site">
-                    <option value="">選択してください</option>
-                    <option value="胸">胸</option>
-                    <option value="腕">腕</option>
-                    <option value="肩">肩</option>
-                    <option value="腹">腹</option>
-                    <option value="背中">背中</option>
-                    <option value="脚">脚</option>
-                    <option value="その他">その他</option>
-                    </select>
-                    <br>
-                    内容<br>
-                    <textarea name="content"></textarea>
-                    <br>
-                    <input class="btn btn-info" type="submit" value="記録">
-                    </form>
+                        @include('blog.form')
+                        <button type="submit" class="btn blue-gradient btn-block">記録する</button>
+                        </form>
                 </div>
             </div>
         </div>

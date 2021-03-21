@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Blog;
+use App\Models\Tag;
 use App\Http\Requests\StoreBlog;
 
 
@@ -46,7 +47,13 @@ class BlogController extends Controller
      */
     public function create()
     {
-        return view('blog.create');
+        $allTagNames = Tag::all()->map(function ($tag) {
+            return ['text' => $tag->name];
+        });
+
+        return view('blog.create', [
+            'allTagNames' => $allTagNames,
+        ]);
     }
 
     /**
@@ -55,14 +62,17 @@ class BlogController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreBlog $request)
+    public function store(StoreBlog $request, Blog $blog)
     {
-        $blog = new Blog;
-
         $blog->fill($request->all());
         $blog->user_id = $request->user()->id;
 
         $blog->save();
+
+        $request->tags->each(function ($tagName) use ($blog) {
+            $tag = Tag::firstOrCreate(['name' => $tagName]);
+            $blog->tags()->attach($tag);
+        });
 
         return redirect('blog/index');
     }
@@ -91,7 +101,19 @@ class BlogController extends Controller
     {
         $blog = Blog::find($id);
 
-        return view('blog.edit', compact('blog'));
+        $tagNames = $blog->tags->map(function ($tag) {
+            return ['text' => $tag->name];
+        });
+
+        $allTagNames = Tag::all()->map(function ($tag) {
+            return ['text' => $tag->name];
+        });
+
+        return view('blog.edit', [
+            'blog' => $blog,
+            'tagNames' => $tagNames,
+            'allTagNames' => $allTagNames,
+        ]);
     }
 
     /**
@@ -101,16 +123,19 @@ class BlogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreBlog $request, Blog $blog)
     {
-        $blog = Blog::find($id);
 
-        $blog->title = $request->input('title');
-        // $blog->target_site = $request->input('target_site');
-        $blog->content = $request->input('content');
+        $blog->fill($request->all());
         $blog->user_id = $request->user()->id;
 
         $blog->save();
+
+        $blog->tags()->detach();
+        $request->tags->each(function ($tagName) use ($blog) {
+            $tag = Tag::firstOrCreate(['name' => $tagName]);
+            $blog->tags()->attach($tag);
+        });
 
         return redirect('blog/index');
     }

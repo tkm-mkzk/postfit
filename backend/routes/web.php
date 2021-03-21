@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WeightController;
+use App\Http\Controllers\TagController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,3 +54,5 @@ Route::group(['prefix' => 'blog', 'middleware' => 'auth'], function() {
     Route::put('{blog}/like', [BlogController::class, 'like'])->name('blog.like');
     Route::delete('{blog}/like', [BlogController::class, 'unlike'])->name('blog.unlike');
 });
+
+Route::get('/tags/{name}', [TagController::class, 'show'])->name('tag.show');

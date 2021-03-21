@@ -22,7 +22,6 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix' => 'blog', 'middleware' => 'auth'], function(){
-    Route::get('index', [BlogController::class, 'index'])->name('blog.index');
     Route::get('create', [BlogController::class, 'create'])->name('blog.create');
     Route::post('store', [BlogController::class, 'store'])->name('blog.store');
     Route::get('show/{id}', [BlogController::class, 'show'])->name('blog.show');
@@ -31,6 +30,8 @@ Route::group(['prefix' => 'blog', 'middleware' => 'auth'], function(){
     Route::post('destroy/{id}', [BlogController::class, 'destroy'])->name('blog.destroy');
     Route::get('destroy/{id}', [BlogController::class, 'index']);
 });
+
+Route::get('blog/index', [BlogController::class, 'index'])->name('blog.index');
 
 Route::group(['prefix' => 'weight', 'middleware' => 'auth'], function(){
     Route::get('index', [WeightController::class, 'index'])->name('weight.index');
@@ -46,8 +47,15 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::group(['prefix' => 'user', 'middleware' => 'auth'], function() {
+Route::group(['prefix' => 'user'], function() {
     Route::get('show/{id}', [UserController::class, 'show'])->name('user.show');
+    Route::get('show/{id}/likes', [UserController::class, 'likes'])->name('user.likes');
+    Route::get('show/{id}/followings', [UserController::class, 'followings'])->name('user.followings');
+    Route::get('show/{id}/followers', [UserController::class, 'followers'])->name('user.followers');
+    Route::group(['middleware' => 'auth'], function() {
+        Route::put('show/{id}/follow', [UserController::class, 'follow'])->name('user.follow');
+        Route::delete('show/{id}/follow', [UserController::class, 'unfollow'])->name('user.unfollow');
+    });
 });
 
 Route::group(['prefix' => 'blog', 'middleware' => 'auth'], function() {

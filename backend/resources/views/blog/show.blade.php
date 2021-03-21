@@ -4,7 +4,7 @@
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8 header-margin footer-bottom">
+        <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('詳細') }}</div>
 

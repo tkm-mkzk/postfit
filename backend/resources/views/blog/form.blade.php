@@ -17,6 +17,13 @@
     </select>
 </div> --}}
 <div class="form-group">
+    <blog-tags-input
+    :initial-tags='@json($tagNames ?? [])'
+    :autocomplete-items='@json($allTagNames ?? [])'
+    >
+    </blog-tags-input>
+</div>
+<div class="form-group">
     <label></label>
     <textarea name="content" required class="form-control" rows="16" placeholder="本文">{{ $blog->content ?? old('content') }}</textarea>
 </div>

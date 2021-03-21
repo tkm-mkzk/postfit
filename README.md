@@ -84,6 +84,7 @@
 #### リレーション
 
 - belongsTo :user
+- belongsToMany :tags
 
 ### likes テーブル
 
@@ -98,3 +99,30 @@
 #### リレーション
 
 - users,blogsの中間テーブル
+
+### tags テーブル
+
+| Column               | Type               | Options           |
+| -------------------- | ------------------ | ----------------- |
+| id                   |                    |                   |
+| name                 | string             | unique            |
+| created_at           |                    |                   |
+| updated_at           |                    |                   |
+
+#### リレーション
+
+- belongsToMany :blogs
+
+### blog_tag テーブル
+
+| Column               | Type               | Options           |
+| -------------------- | ------------------ | ----------------- |
+| id                   |                    |                   |
+| tag_id               | unsignedBigInteger |                   |
+| blog_id              | unsignedBigInteger |                   |
+| created_at           |                    |                   |
+| updated_at           |                    |                   |
+
+#### リレーション
+
+- tags,blogsテーブルの中間テーブル

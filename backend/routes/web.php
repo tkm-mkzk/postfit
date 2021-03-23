@@ -5,6 +5,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WeightController;
 use App\Http\Controllers\TagController;
+use App\Http\Controllers\Auth\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,10 @@ use App\Http\Controllers\TagController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::group(['prefix' => 'login'], function(){
+    Route::get('{provider}', [LoginController::class, 'redirectToProvider'])->name('login.{provider}');
+});
 
 Route::get('/', function () {
     return view('home');

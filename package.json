@@ -1,0 +1,20 @@
+{
+  "name": "postfit",
+  "version": "1.0.0",
+  "description": "<img width=\"712\" alt=\"スクリーンショット 2021-02-26 17 02 41\" src=\"https://user-images.githubusercontent.com/71067058/109457947-34411000-7a9f-11eb-9f1e-e6bc434e2830.png\">",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tkm-mkzk/postfit.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tkm-mkzk/postfit/issues"
+  },
+  "homepage": "https://github.com/tkm-mkzk/postfit#readme"
+}

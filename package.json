@@ -4,6 +4,7 @@
   "description": "<img width=\"712\" alt=\"スクリーンショット 2021-02-26 17 02 41\" src=\"https://user-images.githubusercontent.com/71067058/109457947-34411000-7a9f-11eb-9f1e-e6bc434e2830.png\">",
   "main": "index.js",
   "scripts": {
+    "dev": "webpack --mode development",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

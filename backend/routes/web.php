@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\WeightController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,12 @@ use App\Http\Controllers\Auth\LoginController;
 
 Route::group(['prefix' => 'login'], function(){
     Route::get('{provider}', [LoginController::class, 'redirectToProvider'])->name('login.{provider}');
+    Route::get('{provider}/callback', [LoginController::class, 'handleProviderCallback'])->name('login.{provider}.callback');
+});
+
+Route::group(['prefix' => 'register'], function(){
+    Route::get('{provider}', [RegisterController::class, 'showProviderUserRegistrationForm'])->name('register.{provider}');
+    Route::post('{provider}', [RegisterController::class, 'registerProviderUser'])->name('register.{provider}');
 });
 
 Route::get('/', function () {

@@ -7,6 +7,14 @@
             <div class="card">
                 <div class="card-header">{{ __('新規登録') }}</div>
 
+                <div class="form-group row mb-0">
+                    <div class="col-md-6 offset-md-4">
+                        <a href="{{ route('login.{provider}', ['provider' => 'google']) }}" class="btn btn-danger">
+                            <i class="fab fa-google mr-1"></i>Googleで登録
+                        </a>
+                    </div>
+                </div>
+
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
@@ -68,6 +76,7 @@
                                 </button>
                             </div>
                         </div>
+
                     </form>
                 </div>
             </div>

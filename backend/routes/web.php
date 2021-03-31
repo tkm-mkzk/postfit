@@ -20,6 +20,7 @@ use App\Http\Controllers\Auth\RegisterController;
 */
 
 Route::group(['prefix' => 'login'], function(){
+    Route::get('guest', [LoginController::class, 'guestLogin'])->name('login.guest');
     Route::get('{provider}', [LoginController::class, 'redirectToProvider'])->name('login.{provider}');
     Route::get('{provider}/callback', [LoginController::class, 'handleProviderCallback'])->name('login.{provider}.callback');
 });

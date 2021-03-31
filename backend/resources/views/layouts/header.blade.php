@@ -19,6 +19,12 @@
                 @guest
                     @if (Route::has('login'))
                         <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login.guest') }}">{{ __('ゲストログイン') }}</a>
+                        </li>
+                    @endif
+
+                    @if (Route::has('login'))
+                        <li class="nav-item">
                             <a class="nav-link" href="{{ route('blog.index') }}">{{ __('トレーニング一覧') }}</a>
                         </li>
                     @endif

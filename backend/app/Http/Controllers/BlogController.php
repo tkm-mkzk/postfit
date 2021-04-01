@@ -123,9 +123,10 @@ class BlogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreBlog $request, Blog $blog)
+    public function update(StoreBlog $request, $id)
     {
 
+        $blog = Blog::find($id);
         $blog->fill($request->all());
         $blog->user_id = $request->user()->id;
 

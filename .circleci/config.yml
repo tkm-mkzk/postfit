@@ -1,7 +1,6 @@
 version: 2.1
 jobs:
   build:
-    working_directory: ~/postfit/backend
     docker:
       - image: circleci/php:7.3-node-browsers
     steps:

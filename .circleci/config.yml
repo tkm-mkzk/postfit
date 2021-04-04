@@ -18,5 +18,4 @@ jobs:
           working_directory: backend
       - run:
           name: php test
-          command: php ./backend/artisan --env=testing
           command: php ./backend/vendor/bin/phpunit --configuration=./backend/vendor/bin/phpunit

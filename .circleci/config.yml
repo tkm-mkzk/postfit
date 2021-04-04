@@ -18,5 +18,4 @@ jobs:
           working_directory: backend
       - run:
           name: php test
-          command: vendor/bin/phpunit
-          working_directory: backend
+          command: ./backend/vendor/bin/phpunit

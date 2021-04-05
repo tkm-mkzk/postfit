@@ -81,6 +81,10 @@ www.postfit.xyz (トップページ右上のゲストログインボタンから
 - MailHog
 - SendGrid
 
+## 開発構成図
+
+![スクリーンショット 2021-04-05 17 49 22](https://user-images.githubusercontent.com/71067058/113556670-c8227080-9637-11eb-8911-95807e8449de.png)
+
 ## データベース設計
 
 ### users テーブル

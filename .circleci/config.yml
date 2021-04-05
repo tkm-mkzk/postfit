@@ -31,7 +31,7 @@ jobs:
       - run:
           command: npm run dev
           working_directory: backend
-      - run:
-          name: php test
-          command: vendor/bin/phpunit
-          working_directory: /home/circleci/project/backend
+      # - run:
+      #     name: php test
+      #     command: vendor/bin/phpunit
+      #     working_directory: /home/circleci/project/backend

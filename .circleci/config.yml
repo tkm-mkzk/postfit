@@ -46,6 +46,7 @@ jobs:
           command: |
             ssh -o StrictHostKeyChecking=no -t webapp@${HOST_NAME} "cd postfit && \
               git pull origin main && \
+              cd backend && \
               composer install -n --no-dev --prefer-dist && \
               npm ci && \
               npm run prod && \

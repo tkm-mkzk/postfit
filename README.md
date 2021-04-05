@@ -8,7 +8,7 @@
 
 ## URL
 
-www.postfit.xyz (トップページ右上のゲストログインボタンからゲストログインできます)
+www.postfit.xyz  (トップページ右上のゲストログインボタンからゲストログインできます)
 
 ## 制作背景
 
@@ -77,9 +77,11 @@ www.postfit.xyz (トップページ右上のゲストログインボタンから
 - vue 2.6.11"
 - MySQL
 - docker
-- AWS(EC2)
+- AWS(EC2,RDS)
+- CircleCi
 - MailHog
 - SendGrid
+
 
 ## 開発構成図
 

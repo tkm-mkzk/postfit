@@ -77,7 +77,8 @@ www.postfit.xyz (トップページ右上のゲストログインボタンから
 - vue 2.6.11"
 - MySQL
 - docker
-- AWS(EC2)
+- AWS(EC2,RDS)
+- CircleCi
 - MailHog
 - SendGrid
 

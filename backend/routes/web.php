@@ -66,6 +66,10 @@ Route::group(['prefix' => 'user'], function() {
     Route::get('show/{id}/followings', [UserController::class, 'followings'])->name('user.followings');
     Route::get('show/{id}/followers', [UserController::class, 'followers'])->name('user.followers');
     Route::group(['middleware' => 'auth'], function() {
+        Route::get('edit', [UserController::class, 'editForm'])
+        ->name('user.edit');
+        Route::post('edit', [UserController::class, 'editProfile'])
+        ->name('user.edit');
         Route::put('show/{id}/follow', [UserController::class, 'follow'])->name('user.follow');
         Route::delete('show/{id}/follow', [UserController::class, 'unfollow'])->name('user.unfollow');
     });

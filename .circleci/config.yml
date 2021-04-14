@@ -51,7 +51,7 @@ jobs:
               git reset HEAD --hard && \
               git pull origin main && \
               cd backend && \
-              composer update --lock \
+              rm composer.lock \
               composer install -n --no-dev --prefer-dist && \
               npm ci && \
               npm run prod && \

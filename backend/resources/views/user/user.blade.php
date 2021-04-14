@@ -3,7 +3,11 @@
   <div class="card-body">
     <div class="d-flex flex-row">
       <a href="{{ route('user.show', ['id' => $user->id]) }}" class="text-dark">
-        <i class="fas fa-user-circle fa-3x"></i>
+        @if (!empty($user->avatar_file_name))
+            <img src="/storage/avatars/{{$user->avatar_file_name}}" class="rounded-circle" style="object-fit: cover; width: 100px; height: 100px;">
+        @else
+            <img src="/images/avatar-default.svg" class="rounded-circle" style="object-fit: cover; width: 100px; height: 100px;">
+        @endif
       </a>
       @if( Auth::id() !== $user->id )
         <follow-button

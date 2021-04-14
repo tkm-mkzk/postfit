@@ -9,6 +9,9 @@ jobs:
       - restore_cache:
           key: composer-v1-{{ checksum "composer.lock" }}
       - run:
+          command: COMPOSER_MEMORY_LIMIT=-1 composer require spatie/pdf-to-image
+          working_directory: backend
+      - run:
           command: composer install -n --prefer-dist
           working_directory: backend
       - save_cache:

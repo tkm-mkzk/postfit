@@ -102,12 +102,20 @@
                                     document.getElementById('show').submit();">
                                 {{ __('マイページ') }}
                             </a>
+                            <a class="dropdown-item" href="{{ route('user.edit', auth()->user()->id) }}"
+                                onclick="event.preventDefault();
+                                    document.getElementById('edit').submit();">
+                                {{ __('ユーザー情報編集') }}
+                            </a>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
                                 {{ __('ログアウト') }}
                             </a>
                             <form id="show" action="{{ route('user.show', auth()->user()->id) }}" method="GET" class="d-none">
+                                @csrf
+                            </form>
+                            <form id="edit" action="{{ route('user.edit', auth()->user()->id) }}" method="GET" class="d-none">
                                 @csrf
                             </form>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
